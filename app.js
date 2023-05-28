@@ -18,16 +18,14 @@ async function getLider(){
 
   console.log("▶ ⇛ lider:", lider);
   console.log("▶ ⇛ joda:", joda);
-  console.log("▶ ⇛ differense:", differense);
   return differense
 }
 
 async function goTrack(){
   const differense = await getLider()
-  console.log("▶ ⇛ differense IN GOTRACK:", differense);
   if(differense >= trigger){
     console.log("--> Разница ", differense);
-    console.log("--> Допустимая ", differense);
+    console.log("--> Допустимая ", trigger);
     goFetchRender()
     console.log("--> Запустили render");
     // здесь запросы на рендер функция
