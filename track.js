@@ -11,6 +11,18 @@ const app = express();
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: true }));
 
+function setDate() {
+  const date = new Date();
+  // Получаем текущее значение часового пояса в минутах
+  const currentTimezoneOffset = date.getTimezoneOffset();
+  // Рассчитываем разницу в минутах между текущим часовым поясом и GMT+0700
+  const targetTimezoneOffset = -7 * 60; // GMT+0700 в минутах
+  // Рассчитываем разницу в минутах между текущим часовым поясом и целевым часовым поясом
+  const timezoneOffsetDifference = targetTimezoneOffset - currentTimezoneOffset;
+  // Увеличиваем время на разницу часовых поясов
+  date.setMinutes(date.getMinutes() + timezoneOffsetDifference);
+  return date.toTimeString();
+}
 
 async function track(){
     const resultArray = [];
@@ -37,12 +49,9 @@ async function track(){
 // }
 resultArray.sort((a, b) => b.like - a.like)
   console.log("------------------------------------------------");
-  console.log("------ Время запроса -", new Date().toTimeString());
+  console.log("------ Время запроса -", setDate());
 
   return resultArray
 }
-
-
-// track()
 
 export default track

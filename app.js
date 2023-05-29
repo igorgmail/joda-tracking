@@ -2,6 +2,11 @@ import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
 const fetch = require('node-fetch')
+const express = require('express');
+const fetch = require('node-fetch')
+
+
+const app = express();
 
 import track from "./track.js";
 
@@ -20,10 +25,6 @@ async function getLider(){
   console.log("--> lider:", lider);
   console.log("--> joda:", joda);
   return differense
-}
-
-async function jodaToLider() {
-
 }
 
 
