@@ -65,3 +65,7 @@ function round(goTrack, interval) {
 }
 
 round(goTrack, interval)
+
+app.listen(3001, () => {
+  console.log('Сервер запущен!!');
+});
