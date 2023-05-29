@@ -9,6 +9,7 @@ import track from "./track.js";
 let trigger = 4000
 let interval = 1800000 // 25 минут
 
+
 async function getLider(){
   const finalArr = await track()
   const lider = finalArr[0]
@@ -16,13 +17,19 @@ async function getLider(){
 
   const differense = lider.like - joda.like
 
-  console.log("▶ ⇛ lider:", lider);
-  console.log("▶ ⇛ joda:", joda);
+  console.log("--> lider:", lider);
+  console.log("--> joda:", joda);
   return differense
 }
 
+async function jodaToLider() {
+
+}
+
+
 async function goTrack(){
   const differense = await getLider()
+  // Заданное отставание $trigger
   if(differense >= trigger){
     console.log("--> Разница ", differense);
     console.log("--> Допустимая ", trigger);
@@ -32,6 +39,7 @@ async function goTrack(){
   }else{
     console.log(`--> Разница ${differense} допустимая ${trigger} render не запущен`);
   }
+
 }
 
 async function goFetchRender(){

@@ -36,8 +36,8 @@ async function track(){
   pageNumber += 1
 // }
 resultArray.sort((a, b) => b.like - a.like)
-// console.log("▶ ⇛ resultArray:", resultArray);
-  console.log("Время запроса", new Date().toTimeString());
+  console.log("------------------------------------------------");
+  console.log("------ Время запроса -", new Date().toTimeString());
 
   return resultArray
 }
